@@ -34,11 +34,11 @@ protected function limitHtml($html, $length)
   // Relace The Broken Opened Tag From The the end of String
   $lastCorruptopnArrow = strrpos($html, "<");
   $lastCloseArrow = strrpos($html, ">");
-
   if ( $lastCloseArrow < $lastCorruptopnArrow ) {
     $corruptHTmlString = substr($html, $lastCorruptopnArrow, strlen($html) - $lastCorruptopnArrow);
     $html = preg_replace('/'. preg_quote($corruptHTmlString, '/') . '$/', '', $html);
   }
+  // -----------------------------------------------------
 
   preg_match_all('#<(?!meta|img|br|hr|input\b)\b([a-z]+)(?: .*)?(?<![/|/ ])>#iU', $html, $result);
   
